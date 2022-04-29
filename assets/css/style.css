@@ -1,0 +1,235 @@
+/* Variables */
+
+:root {
+    --main-col: #187ae9;
+    --main-col-dark: #1268ca;
+    --link-col: var(--main-col);
+    --dark-col: #111;
+    --dark-col-a10: rgba(17, 17, 17, .1);
+    --dark-col-alt: #222;
+    --dark-col-alt-2: #3a3d43;
+    --light-dark-col: #161616;
+    --semi-dark-col: #131313;
+    --text-col: #fff;
+    --text-col-alt: #a1a1a6;
+    --text-col-2: #dddddd;
+    --blue-gradient: transparent 0%, rgba(255, 255, 255, 0.1);
+    --col-bdg-green: #009900;
+    --col-slc-yellow: #ffdd00;
+    --col-lgt-grey-1: #c4c2ba;
+    --col-lgt-grey-2: #7d8287;
+    --col-lgt-grey-3: #d0d1d4;
+    --col-lgt-grey-4: rgba(255, 255, 255, 0.2);
+    --col-black: #000;
+    --col-black-a30: rgba(0, 0, 0, 0.3);
+    --col-black-a125: rgba(0, 0, 0, 0.125);
+    --col-white: #fff;
+    --col-white-a10: rgba(255, 255, 255, 0.1);
+    --col-white-a80: rgba(255, 255, 255, 0.8);
+    --col-red-1: #cc0001;
+    --col-red-1-a25: rgba(204, 0, 1, 0.25);
+    --col-red-2: #b40000;
+    --col-red-3: #ff0000;
+    --col-red-4: #8f1f21;
+    --col-red-5: firebrick;
+    --col-blu-1: #20528f;
+    --col-bdg-blue: #369;
+    --col-grn-1: #238f1f;
+    --dep-col-pd: #1a1e2b;
+    --dep-col-so: #112621;
+    --dep-col-st: #191921;
+    --dep-col-fd: #47130e;
+    --wl-main-col: #faac0f;
+    --wl-main-col-darker: #c88704;
+}
+
+/* Base declarations */
+
+* {
+    transition: .2s ease;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+body {
+    background-color: var(--dark-col-alt);
+    color: var(--text-col);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* height: 100vh; */
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-col);
+}
+
+.external-link::before {
+    content: "\f08e";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+.mail-link::before {
+    content: "\f0e0";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+.no-drag {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* --- */
+/* Landing Page - Main */
+/* --- */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--dark-col);
+    flex-shrink: 0;
+}
+
+div.box {
+    overflow: hidden;
+    margin: 0;
+}
+
+.box {
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.bord {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.box.bord>img {
+    /* blur */
+    filter: blur(2px);
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1025px) {
+    .heading_title {
+        font-size: 70px !important;
+    }
+}
+
+.heading_title {
+    font-size: 140px;
+    line-height: 1em;
+    margin-bottom: 25px !important;
+}
+
+.heading_subtitle {
+    text-transform: uppercase;
+}
+
+/* --- */
+/* Navigation */
+/* --- */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+nav ul li {
+    display: inline;
+    float: right;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    color: var(--text-col);
+    text-decoration: none;
+    text-align: center;
+    /* padding: 14px 16px; */
+    margin-right: 10px
+}
+
+nav img {
+    margin-left: 25px;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: inherit !important;
+}
+
+nav ul li a {
+    background-color: var(--dark-col-a10);
+    border-radius: 5px;
+}
+
+nav ul li a:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px var(--main-col);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+nav ul li a:hover:after {
+    transform: scaleX(1)
+}
+
+nav ul li a:hover i {
+    color: var(--main-col);
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
